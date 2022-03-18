@@ -1,0 +1,46 @@
+Progetto Web Chat
+
+Vogliamo realizare una web application che consenta di:
+
+- creare un account;
+- inviare richieste di amicizia agli utenti;
+- iniziare una conversazione con un utente amico;
+
+L'applicazione si baserà su un server centrale che contiene account e chat degli utenti.
+Ogni chat tra utenti dovra essere conservata in modo da ricostruire uno storico delle chat.
+L'applicazione prevede un sistema di conferma lettura messaggio.
+L'applicazione consente agli utenti di sapere chi tra i prorpi contatti è online in tempo reale.
+L'applicazione dovrebbe prevedere un sistema di notifiche che avvisi l'utente di nuovi messaggi e richieste di amicizia(non urgente).
+
+
+
+BACKEND
+
+MongoDB:
+MongoDB è un database di documenti che ti offre la scalabilità e la flessibilità che desideri insieme agli indici e alle query di cui hai bisogno.
+
+NodeJs:
+Node.js® è un runtime JavaScript costruito sul motore JavaScript V8 di Chrome.Come runtime JavaScript guidato da eventi asincroni, Node.js è progettato per creare applicazioni di rete scalabili.
+
+Express:
+Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+
+Socket.io: 
+a library that enables low-latency, bidirectional and event-based communication between a client and a server.It is built on top of the WebSocket protocol and provides additional guarantees like fallback to HTTP long-polling or automatic reconnection.
+
+
+  
+FRONTEND
+
+React.js
+React (noto anche come React.js o ReactJS) è una libreria open-source, front-end, JavaScript[1] per la creazione di interfacce utente.
+
+MUI
+MUI provides a robust, customizable, and accessible library of foundational and advanced components, enabling you to build your design system and develop React applications faster.
+
+Bootstrap 5
+Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.
+
+
+Roberto Zecchini
+Giancarlo Urone
