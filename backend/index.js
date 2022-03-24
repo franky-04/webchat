@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 3000;
 const programmingLanguagesRouter = require('./src/routes/programmingLanguages.route');
+const server = require('socket.io');
 
 app.use(bodyParser.json());
 app.use(
@@ -25,6 +26,20 @@ app.use((err, req, res, next) => {
   
   return;
 });
+
+const io = new server.Server(3001);
+io.on("connection", (socket) => {
+  socket.emit("chat message","Ciao, scrivi qualcosa...");
+
+  socket.on("chat message", (arg) => {
+    console.log(`Hai ricevuto: ${arg}`);
+
+    io.sockets.emit("chat message", (arg.toUpperCase()));
+  })
+
+  
+})
+
 
 app.listen(port, '0.0.0.0', () => {
   console.log(`Example app listening at http://localhost:${port}`)
