@@ -27,7 +27,14 @@ app.use((err, req, res, next) => {
   return;
 });
 
-const io = new server.Server(3001);
+const io = new server.Server(port, {
+  cors: {
+      origin: `http://sanchochat-backend.herokuapp.com`,
+      methods: ["GET", "POST"],
+      credentials: true
+  }
+});
+
 io.on("connection", (socket) => {
   socket.emit("chat message","Ciao, scrivi qualcosa...");
 
