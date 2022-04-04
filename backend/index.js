@@ -27,7 +27,11 @@ app.use((err, req, res, next) => {
   return;
 });
 
-const io = new server.Server(port);
+const io = new server.Server(port, {
+  cors: {
+    origin: '*',
+  }
+});
 
 io.on("connection", (socket) => {
   socket.emit("chat message","Ciao, scrivi qualcosa...");
