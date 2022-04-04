@@ -6,15 +6,16 @@ import {io} from 'socket.io-client';
 
 function ChatComponent() {
   const socket = io('ws://sanchochat-backend.herokuapp.com/');
-  function sendMessage(message) {
-    //socket.emit("chat message", message)
-    console.log("submit eseguito: " + message)
+  function sendMessage(event) {
+    event.preventDefault()
+    socket.emit("chat message", event.target.message.value)
+    console.log("submit eseguito: " + event.target.message.value)
   }
   return (
     <div>
         <h1>ChatComponent</h1>
         <ConversationComponent />
-        <InputComponent onSubmit={(m) => this.sendMessage(m)} />
+        <InputComponent onSubmit={sendMessage} />
     </div>
   );
 }
