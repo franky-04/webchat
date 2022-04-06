@@ -3,6 +3,7 @@ import ConversationComponent from '../ConversationComponent/ConversationComponen
 import InputComponent from '../InputComponent/InputComponent';
 import './ChatComponent.css';
 import {io} from 'socket.io-client';
+import { SocketContext } from '../../SocketContext';
 
 function ChatComponent() {
 
@@ -14,16 +15,13 @@ function ChatComponent() {
     console.log("submit eseguito: " + event.target.message.value)
   }
 
-  // receive a message from the server
-  socket.addEventListener("chat message", ( data ) => {
-    console.log(data)
-  });
-
   return (
     <div>
         <h1>ChatComponent</h1>
-        <ConversationComponent />
-        <InputComponent onSubmit={sendMessage} />
+        <SocketContext.Provider value={socket}>
+          <ConversationComponent />
+          <InputComponent onSubmit={sendMessage} />
+        </SocketContext.Provider>
     </div>
   );
 }
