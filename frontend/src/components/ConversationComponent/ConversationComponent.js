@@ -1,28 +1,35 @@
-import { useState, useContext } from 'react';
-import './ConversationComponent.css';
-import {SocketContext} from '../../SocketContext';
-
+import { useState, useContext, useEffect } from 'react'
+import './ConversationComponent.css'
+import {SocketContext} from '../../SocketContext'
+import MessageComponent from '../MessageComponent/MessageComponent'
 
 function ConversationComponent() {
   const socket = useContext(SocketContext)
-  const [conversation, setConversation] = useState([]);
+  const [conversation, setConversation] = useState([])
 
+  const custom_push = ( data ) => {
+    // console.log(data)
+    setConversation((conversation) => [...conversation, data])
+    console.log(conversation)
+  }
   // receive a message from the server
-  socket.addEventListener("chat message", ( data ) => {
-    console.log(data)
-    //setConversation((conversation) => [...conversation, data])
-    //console.log(conversation)
-  });
+  useEffect(() => {
+    socket.addEventListener("chat message", custom_push)
+    return () => {
+      socket.removeEventListener("chat message", custom_push)
+    }
+  }, [conversation])
+  
 
   return (
-    <ul>
+    <div >
         {conversation.map((message, index) => {
-          return ( <li key={index}>{message}</li>)
+          return ( <MessageComponent key={index} message={message} />)
         })}
-    
-    </ul>
+    </div>
+   
     
   );
 }
 
-export default ConversationComponent;
+export default ConversationComponent
