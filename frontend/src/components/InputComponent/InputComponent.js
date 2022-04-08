@@ -2,11 +2,12 @@ import './InputComponent.css';
 
 function InputComponent(props) {
   return (
-    <form onSubmit={props.onSubmit}>
-        <label>InputComponent</label>
-        <input type="text" name="message"></input>
-        <button type="submit">send</button>
-    </form>
+    <div className="center">
+      <form onSubmit={props.onSubmit}>
+          <input type="text" name="message"></input>
+          <button type="submit">send</button>
+      </form>
+    </div>
   );
 }
 

@@ -22,7 +22,7 @@ function ConversationComponent() {
   
 
   return (
-    <div >
+    <div>
         {conversation.map((message, index) => {
           return ( <MessageComponent key={index} message={message} />)
         })}

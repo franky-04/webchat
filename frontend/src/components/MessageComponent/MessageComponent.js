@@ -3,7 +3,9 @@ import './MessageComponent.css';
 function MessageComponent(props) {
    
     return (
-     <p>{props.message}</p>
+        <div className="center">
+            <p className="alert alert-primary d-inline-block">{props.message}</p>
+        </ div>
     );
   }
   

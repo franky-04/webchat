@@ -16,12 +16,13 @@ function ChatComponent() {
   }
 
   return (
-    <div>
-        <h1>ChatComponent</h1>
+    <div className="container-fluid">
+      <div className="center">
         <SocketContext.Provider value={socket}>
           <ConversationComponent />
           <InputComponent onSubmit={sendMessage} />
         </SocketContext.Provider>
+      </div>
     </div>
   );
 }
