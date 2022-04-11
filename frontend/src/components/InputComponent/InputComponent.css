@@ -1,3 +1,8 @@
 .center{
     margin: auto;
 }
+
+.bottom{
+    position: fixed;
+    bottom: 0;
+}
