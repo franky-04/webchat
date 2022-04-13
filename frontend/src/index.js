@@ -1,12 +1,13 @@
+import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import ChatComponent from './components/ChatComponent/ChatComponent';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ChatComponent />
   </React.StrictMode>,
   document.getElementById('root')
 );
