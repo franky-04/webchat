@@ -7,18 +7,22 @@ function ConversationComponent() {
   const socket = useContext(SocketContext)
   const [conversation, setConversation] = useState([])
 
+
   const custom_push = ( data ) => {
     // console.log(data)
     setConversation((conversation) => [...conversation, data])
-    console.log(conversation)
   }
+
   // receive a message from the server
   useEffect(() => {
     socket.addEventListener("chat message", custom_push)
     return () => {
       socket.removeEventListener("chat message", custom_push)
     }
-  }, [conversation])
+    // comment to prevent eslint warning about dependencies from socket and conversation
+    // "right" solution lead to undesired behavior (continuous addeventlistener and remove)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   
 
   return (

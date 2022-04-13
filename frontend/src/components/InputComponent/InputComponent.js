@@ -17,9 +17,7 @@ function InputComponent(props) {
   }
 
  function update(e){
-  console.log(`${e.target.value} - ${val}`)
   setVal(e.target.value)
-  console.log(`${e.target.value} - ${val}`)
  }
 
 
