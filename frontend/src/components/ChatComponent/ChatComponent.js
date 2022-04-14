@@ -7,7 +7,7 @@ import { SocketContext } from '../../SocketContext';
 
 function ChatComponent() {
 
-  const socket = io('ws://sanchochat-backend.herokuapp.com/');
+  const socket = io('wss://sanchochat-backend.herokuapp.com/');
 
   return (
     <div className="container-fluid">
