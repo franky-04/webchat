@@ -10,7 +10,10 @@
   "author": "Roberto Zecchini, Giancarlo Urone",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3",
+    "fastify": "^3.28.0",
+    "fastify-cors": "^6.0.3",
+    "fastify-socket.io": "^3.0.0",
+    "pino-pretty": "^7.6.1",
     "socket.io": "^4.4.1"
   }
 }
