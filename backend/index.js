@@ -10,8 +10,8 @@ const fastifyCors = require("fastify-cors");
 
 const port = process.env.PORT || 3000
 	
-server.register(fastifyCors, { 
-  origin: '*',
+server.register(fastifyCors, {
+  origin: "*",
 })
 
 server.register(fastifyIO, {
@@ -25,13 +25,13 @@ server.ready().then(() => {
   
   server.io.on("connection", (socket) => {
     server.io.emit("chat message","Ciao, scrivi qualcosa...")
+    server.log.info(`messaggio di benvenuto..`)
+    
+    socket.on("chat message", (arg) => {
+      server.log.info(`Hai ricevuto: ${arg}`)
+      server.io.emit("chat message", (arg.toUpperCase()))
+    })
   });
-  
-  server.io.on("chat message", (arg) => {
-    console.log(`Hai ricevuto: ${arg}`)
-
-    server.io.emit("chat message", (arg.toUpperCase()))
-  })
 })
 
 server.listen(port, '0.0.0.0', (err, address) => {
